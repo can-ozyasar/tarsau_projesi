@@ -14,7 +14,7 @@ Bu proje, **Bilgisayar Muhendisligi Sistem Programlama 2025-2026 Bahar Donemi Pr
 | Ad Soyad | Ogrenci Numarasi |
 | --- | --- |
 | Muhammed Can Ozyasar | G231210009 |
-| Ali | NUMARA_GIRILECEK |
+| Ali Elhüseyin  | B201210555 |
 
 ## Projenin Amaci
 

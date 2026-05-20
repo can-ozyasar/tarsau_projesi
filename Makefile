@@ -1,18 +1,20 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -g
+CC := gcc
+CFLAGS := -std=c11 -Wall -Wextra -pedantic -O2
+TARGET := tarsau
+SRC := tarsau.c
 
-all: tarsau
+.PHONY: all clean run-example
 
-tarsau: tarsau.c
-	$(CC) $(CFLAGS) -o tarsau tarsau.c
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CC) $(CFLAGS) -o $@ $<
+
+run-example: $(TARGET)
+	./$(TARGET) -b t1.txt -o ornek.sau
+	rm -rf ornek_cikti
+	./$(TARGET) -a ornek.sau ornek_cikti
 
 clean:
-	rm -f tarsau *.sau
-
-# Projeyi hocaya teslim formatında sıkıştırmak için özel komut
-# Kullanımı terminale: make zip (Daha sonra ogrenci_no kısımlarını güncelleriz)
-zip: clean
-	mkdir -p ogrenci_no1_ogrenci_no2
-	cp tarsau.c Makefile rapor.pdf ogrenci_no1_ogrenci_no2/ 2>/dev/null || :
-	zip -r ogrenci_no1_ogrenci_no2.zip ogrenci_no1_ogrenci_no2
-	rm -rf ogrenci_no1_ogrenci_no2
+	rm -f $(TARGET) *.o *.sau *.exe
+	rm -rf ornek_cikti

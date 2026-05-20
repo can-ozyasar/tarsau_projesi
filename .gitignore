@@ -1,0 +1,7 @@
+tarsau
+*.o
+*.sau
+*.exe
+ornek_cikti/
+test_out/
+test_work/

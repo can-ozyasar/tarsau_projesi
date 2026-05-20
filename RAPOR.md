@@ -13,9 +13,9 @@
 | Ad Soyad | Ogrenci Numarasi |
 | --- | --- |
 | Muhammed Can Ozyasar | G231210009 |
-| Ali | NUMARA_GIRILECEK |
+| Ali Elhüseyin  | B201210555 |
 
-Bu proje Muhammed Can Ozyasar ve Ali tarafindan birlikte hazirlanmistir.
+Bu proje Muhammed Can Ozyasar ve Ali Elhüseyin  tarafindan birlikte hazirlanmistir.
 
 ## 3. Projenin Amaci
 
@@ -27,7 +27,7 @@ Projede dosya islemleri, komut satiri argumanlari, dosya izinleri, dizin olustur
 
 ## 4. Projede Istenen Temel Ozellikler
 
-Proje isterlerine gore programda iki farkli calisma modu bulunmaktadir:
+Proje isterlerine gore programda iki farkli csma modu bulunmaktadir:
 
 ```bash
 ./tarsau -b dosya1 dosya2 -o arsiv.sau
@@ -43,14 +43,14 @@ Bu komut arsiv acma modudur.
 
 Projede dikkat edilen temel kurallar sunlardir:
 
-- Giris dosyalari ASCII metin dosyasi olmalidir.
+- Giris dosyalari ASCII metin dosyasi olmdir.
 - En fazla 32 giris dosyasi arsivlenebilmelidir.
 - Giris dosyalarinin toplam boyutu 200 MB'i gecmemelidir.
-- Arsiv dosyasi adi verilmezse varsayilan olarak `a.sau` kullanilmalidir.
-- Arsiv dosyasi `.sau` uzantili olmalidir.
-- Arsiv acilirken hedef dizin yoksa olusturulmalidir.
-- Acilan dosyalarin izinleri arsivlendigi zamanki izinlerle ayni olmalidir.
-- Hatali girislerde program aniden sonlanmamali, anlamli hata mesaji vermelidir.
+- Arsiv dosyasi adi verilmezse varsayilan olarak `a.sau` kullanilmdir.
+- Arsiv dosyasi `.sau` uzantili olmdir.
+- Arsiv acilirken hedef dizin yoksa olusturulmdir.
+- Acilan dosyalarin izinleri arsivlendigi zamanki izinlerle ayni olmdir.
+- Hat girislerde program aniden sonlanmam, anlamli hata mesaji vermelidir.
 
 ## 5. Proje Dosya Yapisi
 
@@ -72,13 +72,13 @@ tarsau_projesi/
 
 ## 6. Kullanilan Yontem
 
-Programda once komut satiri argumanlari kontrol edilmektedir. Kullanici `-b` parametresi verirse program arsiv olusturma modunda calisir. Kullanici `-a` parametresi verirse program arsiv acma modunda calisir.
+Programda once komut satiri argumanlari kontrol edilmektedir. Kullanici `-b` parametresi verirse program arsiv olusturma modunda csir. Kullanici `-a` parametresi verirse program arsiv acma modunda csir.
 
-Arsiv olusturma isleminde once giris dosyalari tek tek kontrol edilir. Dosyanin var olup olmadigi, normal bir dosya olup olmadigi ve ASCII karakterlerden olusup olusmadigi incelenir. Daha sonra dosyanin izin bilgisi ve boyutu `stat()` sistem cagrisi ile alinir.
+Arsiv olusturma isleminde once giris dosyalari tek tek kontrol edilir. Dosyanin var olup olmadigi, normal bir dosya olup olmadigi ve ASCII karakterlerden olusup olusmadigi incelenir. Daha sonra dosyanin izin bilgisi ve boyutu `stat()` sistem cagrisi ile nir.
 
 Butun dosyalar kontrol edildikten sonra `.sau` arsiv dosyasi olusturulur. Arsivin basina organizasyon bilgisi yazilir. Bu kisimda her dosyanin adi, izinleri ve boyutu tutulur. Daha sonra dosya icerikleri herhangi bir ayirici kullanilmadan arka arkaya arsive eklenir.
 
-Arsiv acma isleminde ise once arsivin ilk 10 bayti okunur. Bu kisim organizasyon bolumunun kac bayt oldugunu belirtir. Daha sonra organizasyon bolumu okunur ve buradaki kayitlara gore dosyalar hedef dizinde tekrar olusturulur. Her dosya icin arsivden gerekli bayt kadar veri okunur ve dosyaya yazilir. Son olarak `chmod()` ile dosya izinleri eski haline getirilir.
+Arsiv acma isleminde ise once arsivin ilk 10 bayti okunur. Bu kisim organizasyon bolumunun kac bayt oldugunu belirtir. Daha sonra organizasyon bolumu okunur ve buradaki kayitlara gore dosyalar hedef dizinde tekrar olusturulur. Her dosya icin arsivden gerekli bayt kadar veri okunur ve dosyaya yazilir. Son olarak `chmod()` ile dosya izinleri eski hne getirilir.
 
 ## 7. `.sau` Arsiv Dosyasi Formati
 
@@ -143,7 +143,7 @@ fprintf(archive, "%010zu", index_size);
 
 Bu sayede arsiv acilirken program ilk 10 bayti okuyup organizasyon bilgisinin uzunlugunu ogrenebilir.
 
-Dosya izinleri `stat()` ile alinip arsive yazilir. Arsiv acilirken de `chmod()` ile geri yuklenir.
+Dosya izinleri `stat()` ile nip arsive yazilir. Arsiv acilirken de `chmod()` ile geri yuklenir.
 
 ```c
 file_infos[i].permissions = file_stat.st_mode & 0777;
@@ -152,11 +152,11 @@ chmod(output_path, (mode_t)permissions);
 
 ## 9. Hata Kontrolleri
 
-Programda hatali girislerin programi cokertmemesi icin cesitli kontroller yapilmistir.
+Programda hat girislerin programi cokertmemesi icin cesitli kontroller yapilmistir.
 
 Kontrol edilen durumlar:
 
-- Eksik veya hatali komut parametresi
+- Eksik veya hat komut parametresi
 - `.sau` uzantisi olmayan arsiv dosyasi
 - Var olmayan giris dosyasi
 - Normal dosya olmayan giris
@@ -164,7 +164,7 @@ Kontrol edilen durumlar:
 - 32'den fazla dosya girilmesi
 - Toplam dosya boyutunun 200 MB'i gecmesi
 - Bozuk arsiv basligi
-- Hatali organizasyon kaydi
+- Hat organizasyon kaydi
 - Dosya yolu guvenligi
 - Hedef dizin olusturma hatasi
 - Dosya yazma ve izin verme hatalari
@@ -189,7 +189,7 @@ Program `Makefile` ile derlenmektedir.
 make
 ```
 
-Bu komut sonucunda `tarsau` isimli calistirilabilir dosya olusur.
+Bu komut sonucunda `tarsau` isimli cstirilabilir dosya olusur.
 
 Derleme ciktilarini temizlemek icin:
 
@@ -197,7 +197,7 @@ Derleme ciktilarini temizlemek icin:
 make clean
 ```
 
-## 11. Ornek Calisma
+## 11. Ornek Csma
 
 Asagidaki komutla `t1.txt` dosyasi arsivlenir:
 

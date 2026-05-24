@@ -1,7 +1,40 @@
+# --- Derleme çıktıları ---
 tarsau
 *.o
-*.sau
 *.exe
+
+# --- Arşiv dosyaları (test/geçici) ---
+*.sau
+
+# --- Test ve çıktı dizinleri ---
 ornek_cikti/
 test_out/
 test_work/
+cikti*/
+*_cikti/
+*_test*/
+perm_*/
+yeni_*/
+multi_*/
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Geçici ve üretilmiş dosyalar ---
+generate_report.py
+rapor.html
+rapor.pdf
+
+# --- Ekran görüntüleri (büyük binary dosyalar) ---
+ekranGoruntuleri/
+
+# --- Binary test dosyaları ---
+*.bin
+
+# --- OS dosyaları ---
+.DS_Store
+Thumbs.db
